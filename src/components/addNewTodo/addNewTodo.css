@@ -1,0 +1,5 @@
+.addNewTodo > input{
+    width:400px;
+    height:33px;
+    border-color:lightgrey;
+}
