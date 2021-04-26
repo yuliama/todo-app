@@ -1,4 +1,5 @@
 import { useState } from "react";
+import './toDoItem.css'
 
 export default function ToDoItem({ item, onChange }) {
     let className = item.isCompleted ? 'completed' : '';
@@ -8,12 +9,11 @@ export default function ToDoItem({ item, onChange }) {
     function checkChanged(item) {
         setChecked(!checked);
         return onChange(item);
-        console.log("checkChanged", item); 
     }
     return (
-        <div>
-            <input type="checkbox" checked={checked} onChange={() => checkChanged(item)}></input>
-            <label name="todo" className={className}>{item.text}</label>
+        <div className="item">
+            <input name="todo" type="checkbox" checked={checked} onChange={() => checkChanged(item)}></input>
+            <label for="todo" className={className}>{item.text}</label>
         </div>
     )
 }
