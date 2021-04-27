@@ -6,7 +6,7 @@ export default function AddNewTodo({ onKeyDown }) {
     return (
         <div className="addNewTodo">
             <input type="text" value={todo} placeholder="What's next?" onChange={e => setTodo(e.target.value)} onKeyDown={e => {
-                if (e.key == "Enter") {
+                if (e.key == "Enter" && todo) {
                     let value = todo;
                     setTodo('');
                     return onKeyDown(value);

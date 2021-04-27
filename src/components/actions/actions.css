@@ -1,0 +1,25 @@
+.actionsSection {
+    justify-content: space-between;
+    margin: 40px 160px;
+}
+.show {
+    display: flex;
+}
+.hide {
+    display: none;
+}
+.filterActions > input[type="button"] {
+    margin: 0 5px;
+    border: none;
+    background-color: white;
+}
+.filterActions > input[type="button"]:hover {
+    cursor: pointer;
+}
+.filterActions > input[type="button"].active, .filterActions > input:focus {
+    border-radius: 19%;
+    border: none;
+    border: 1px solid palevioletred;
+    padding: 10px;
+    outline: 0;   
+}
