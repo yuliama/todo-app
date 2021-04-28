@@ -1,11 +1,12 @@
-import { React, useState } from 'react';
+import { React, useState, Component } from 'react';
 import ReactDOM from 'react-dom';
 import Modal from 'react-modal';
 import TodoModel from './model/TodoModel';
-import Header from './components/header/header'
-import AddNewTodo from './components/addNewTodo/addNewTodo'
-import ToDoList from './components/toDoList/toDoList'
-import Actions from './components/actions/actions'
+import Header from './components/header/header';
+import AddNewTodo from './components/addNewTodo/addNewTodo';
+import ToDoList from './components/toDoList/toDoList';
+import Actions from './components/actions/actions';
+import Button from 'react-bootstrap/Button';
 
 import './App.css';
 
@@ -19,9 +20,6 @@ const customStyles = {
     transform: 'translate(-50%, -50%)'
   }
 };
-
-// Make sure to bind modal to your appElement (https://reactcommunity.org/react-modal/accessibility/)
-//Modal.setAppElement('#yourAppElement');
 
 function App() {
   const [todoList, setTodoList] = useState([]);
@@ -75,11 +73,6 @@ function App() {
     setIsOpen(true);
   }
 
-  function afterOpenModal() {
-    // references are now sync'd and can be accessed.
-    // subtitle.style.color = '#f00';
-  }
-
   function closeModal(isApproved) {
     setIsOpen(false);
     if (isApproved && itemToDelete) {
@@ -95,11 +88,12 @@ function App() {
       <ToDoList list={filterBy === 'All' ? todoList :
         filterBy === 'Active' ? todoList.filter(item => !item.isCompleted) : todoList.filter(item => item.isCompleted)}
         onChange={item => changeCheckTodoItem(item)} onDelete={item => deleteItem(item)} filterBy={filterBy}></ToDoList>
-      <Modal isOpen={modalIsOpen} onAfterOpen={afterOpenModal}
-        onRequestClose={closeModal} style={customStyles} contentLabel="Example Modal">
-        <h2>This operation will delete an uncompleted task.<br></br> Do you want to continue?</h2>
-        <button onClick={() => closeModal(true)}>Yes</button>
-        <button onClick={() => closeModal(false)}>Cancel</button>
+      <Modal isOpen={modalIsOpen} onRequestClose={closeModal} style={customStyles} contentLabel="Example Modal">
+        <h2 className="deleteModalTitle">This operation will delete an uncompleted task.<br></br> Do you want to continue?</h2>
+        <div className="modalBtn">
+          <Button onClick={() => closeModal(true)}>Yes</Button>
+          <Button onClick={() => closeModal(false)}>Cancel</Button>
+        </div>
       </Modal>
       <Actions activeTodosNumber={activeTodoCount} visibilityClassName={visibilityClassName} onClick={(item) => setFilterBy(item)}></Actions>
     </div >

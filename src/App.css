@@ -5,3 +5,19 @@
   border: 1px solid lightgray;
   padding: 50px;
 }
+.deleteModalTitle {
+  font-size: 19px;
+}
+.modalBtn {
+  margin-top: 35px;
+}
+.modalBtn > .btn {
+  margin-right: 30px;
+  color: #fff;
+  background-color: #17a2b8;
+  border: none;
+  width: 77px;
+  height: 33px;
+  border-radius: 5%;
+  cursor: pointer;
+}
