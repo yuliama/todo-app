@@ -21,3 +21,9 @@
   border-radius: 5%;
   cursor: pointer;
 }
+@media screen and (max-width:600px) {
+  .App {
+    max-width: 400px;
+    padding:10px;
+  }
+}

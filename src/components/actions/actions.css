@@ -23,3 +23,9 @@
     padding: 10px;
     outline: 0;   
 }
+@media screen and (max-width:800px) {
+    .actionsSection{
+        margin-left:0;
+        margin-right:0;
+    }
+}

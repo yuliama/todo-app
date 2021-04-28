@@ -3,3 +3,8 @@
     height:33px;
     border-color:lightgrey;
 }
+@media screen and (max-width:600px) {
+    .addNewTodo > input{
+        width:200px;
+    }
+}
